@@ -47,3 +47,13 @@ This lab focuses on Database Security within Oracle 21c, specifically handling a
 
 <img width="1365" height="704" alt="Screenshot 2026-04-17 142656" src="https://github.com/user-attachments/assets/eff781ac-e001-48c7-a16c-ac901e14c419" />
 
+### Lab 04: Database Storage Expansion and Usage Metrics
+### Overview
+This lab focuses on Storage Administration in Oracle 21c. It demonstrates how to monitor existing physical storage, expand database capacity by resizing data files, add new storage containers (Datafiles), and analyze tablespace utilization metrics.
+
+
+<img width="1365" height="712" alt="Screenshot 2026-04-17 150708" src="https://github.com/user-attachments/assets/f2be8ddd-dd6c-44b1-82b2-e7be1a938b97" />
+
+
+<img width="1365" height="705" alt="Screenshot 2026-04-17 150746" src="https://github.com/user-attachments/assets/97dce9cc-bc8d-48f3-b988-d3ba0e2ebac2" />
+
