@@ -1,0 +1,269 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat Mar 28 12:01:01 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Sat Mar 28 2026 11:51:17 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+
+
+SQL> ALTER SESSION SET CONTAINER = XEPDB1;
+
+Session altered.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> CREATE USER scott IDENTIFIED BY tiger;
+
+User created.
+
+SQL> GRANT CONNECT, RESOURCE TO scott;
+
+Grant succeeded.
+
+SQL> GRANT UNLIMITED TABLESPACE TO scott;
+
+Grant succeeded.
+
+SQL> CREATE TABLE scott.emp (id NUMBER, name VARCHAR2(20), deptno NUMBER );
+
+Table created.
+
+SQL> INSERT INTO scott.emp VALUES (1,'ALI', 10);
+
+1 row created.
+
+SQL> INSERT INTO scott.emp VALUES (2,'BILAL', 20);
+
+1 row created.
+
+SQL> INSERT INTO scott.emp VALUES (3,'HAMZA', 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> CREATE OR REPLACE FUNCTION get_dept_privacy (
+    obj_scheme IN VARCHAR2,
+    obj_name IN VARCHAR2 ) RETURN VARCHAR2 AS
+    BEGIN
+    IF (SYS_CONTEXT('USERENV', 'SESSION_USER') = 'SCOTT') THEN
+    RETURN 'DEPTNO = 20';
+    ELSE
+    RETURN '1=1';
+    END IF;
+   END;
+   /
+
+Function created.
+
+SQL> BEGIN
+    DBMS_RLS.ADD_POLICY (
+    object_schema => 'SCOTT',
+    object_name => 'EMP',
+    policy_name => 'secure_dept_policy',
+    function_schema => 'SYS',
+    policy_function => 'get_dept_privacy',
+    statement_types => 'SELECT'
+    );
+   END;
+   /
+
+PL/SQL procedure successfully completed.
+
+
+
+
+
+SQL> SHOW ERRORS FUNCTION get_dept_privacy;
+No errors.
+SQL> CREATE OR REPLACE FUNCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2 ) RETURN VARCHAR2 AS
+  4  BEGIN
+  5  IF (SYS_CONTEXT('USERENV', 'SESSION_USER') = 'SCOTT') THEN
+  6  RETURN 'DEPTNO = 20';
+  7  ELSE
+  8  RETURN '1=1';
+  9  END IF;
+ 10  END;
+ 11  /
+
+Function created.
+
+
+
+SQL> BEGIN
+  2  DBMS_RLS.DROP_POLICY (
+  3  object_schema => 'SCOTT',
+  4  object_name => 'EMP',
+  5  policy_name => 'secure_dept_policy'
+  6  );
+  7  END;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE FUNCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2 ) RETURN VARCHAR2 AS
+  4  obj_name IN VARCHAR2 ) RETURN VARCHAR2 AS
+  5
+  6  ^XS
+  7  SEND
+  8  ;L
+  9  END/
+ 10  /
+
+Warning: Function created with compilation errors.
+
+SQL> CREATE OR REPLACE FUNCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2
+  4  ) RETURN VARCHAR2 AS
+  5  BEGIN
+  6  IF (SYS_CONTEXT('USERENV', 'SESSION_USER') = 'SCOTT') THEN
+  7  RETURN 'deptno = 20';
+  8  ELSE
+  9  RETURN '1=1';
+ 10  END IF;
+ 11  END;
+ 12  /
+
+Function created.
+
+SQL> BEGIN
+  2  DBMS_RLS.ADD_POLICY (
+  3  object_schema => 'SCOTT',
+  4  object_name => 'EMP',
+  5  policy_name => 'secure_dept_policy',
+  6  function_schema => 'SYS',
+  7  policy_function => 'get_dept_privacy',
+  8  statement_types => 'SELECT'
+  9  );
+ 10  END;
+ 11  /
+
+PL/SQL procedure successfully completed.
+
+
+
+SQL> DESCRIBE scott.emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER
+ NAME                                               VARCHAR2(20)
+ DEPTNO                                             NUMBER
+
+
+
+
+
+SQL> GRANT CONNECT, RESOURCE TO scott;
+
+Grant succeeded.
+
+SQL> GRANT UNLIMITED TABLESPACE TO scott;
+
+Grant succeeded.
+
+
+
+
+SQL> DESCRIBE scott.emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER
+ NAME                                               VARCHAR2(20)
+ DEPTNO                                             NUMBER
+
+SQL> BEGIN
+  2  DBMS_RLS.DROP_POLICY(
+  3  object_schema => 'scott',
+  4  object_name => 'emp',
+  5  policy_name => 'secure_dept_policy'
+  6  );
+  7  END;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> CREATE OR REPLACE FUCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2
+  4  ) RETURN VARCHAR2 AS
+  5  BEGIN
+  6  RETURN 'DEPTNO = 20';
+CREATE OR REPLACE FUCTION get_dept_privacy (
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> CREATE OR REPLACE FUCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2
+  4  ) RETURN VARCHAR2 AS
+  5  BEGIN
+  6  RETURN 'DEPTNO = 20';
+CREATE OR REPLACE FUCTION get_dept_privacy (
+                  *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> CREATE OR REPLACE FUNCTION get_dept_privacy (
+  2  obj_schema IN VARCHAR2,
+  3  obj_name IN VARCHAR2
+  4  ) RETURN VARCHAR2 AS
+  5  BEGIN
+  6  RETURN 'DEPTNO = 20';
+  7  END;
+  8  /
+
+Function created.
+
+
+SQL> SELECT status FROM all_objects WHERE object_name = 'GET_DEPT_PRIVACY';
+
+STATUS
+-------
+VALID
+
+SQL> BEGIN
+  2  DBMS_RLS.ADD_POLICY (
+  3  object_schema => 'scott',
+  4  object_name => 'emp',
+  5  policy_name => 'secure_dept_policy',
+  6  function_schema => 'system',
+  7  policy_function => 'get_dept_privacy',
+  8  statement_types => 'SELECT'
+  9  );
+ 10  END;
+ 11  /
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT * FROM scott.emp;
+
+        ID NAME                     DEPTNO
+---------- -------------------- ----------
+         2 BILAL                        20
+         3 HAMZA                        20
+
+
+
+
+SQL>
