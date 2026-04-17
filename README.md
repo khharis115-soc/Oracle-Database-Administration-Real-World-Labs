@@ -88,3 +88,12 @@ This lab focuses on Backup and Recovery strategies using Oracle's Data Pump util
 
 
 <img width="1365" height="572" alt="Screenshot 2026-04-17 160910" src="https://github.com/user-attachments/assets/d6f9c1ae-8833-4af7-83f2-acf843305819" />
+
+## Lab 8: Database Resource Manager Configuration
+## Overview
+This lab explores the Oracle Database Resource Manager (DBRM), a tool used to manage database resources (like CPU) among different user groups. It demonstrates the process of creating consumer groups, resource plans, and directives to prioritize critical workloads over background tasks.
+
+<img width="1365" height="419" alt="Screenshot 2026-04-17 162305" src="https://github.com/user-attachments/assets/aede3e6f-8ab8-4188-9276-1996770f9390" />
+
+<img width="1363" height="448" alt="Screenshot 2026-04-17 162340" src="https://github.com/user-attachments/assets/ad7491a1-fae5-4e60-b1ad-08b22278ef15" />
+
