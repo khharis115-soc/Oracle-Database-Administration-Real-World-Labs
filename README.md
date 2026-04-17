@@ -61,5 +61,13 @@ This lab focuses on Storage Administration in Oracle 21c. It demonstrates how to
 ##Overview
 This lab focuses on Security Administration in Oracle 21c. It demonstrates how to monitor active audit policies, track administrative actions, and manage security parameters to protect the database from unauthorized access.
 
+<img width="1365" height="598" alt="Screenshot 2026-04-17 153926" src="https://github.com/user-attachments/assets/7258c9b3-4195-4735-af4d-df398815a19f" />
 
+
+<img width="1365" height="698" alt="Screenshot 2026-04-17 154007" src="https://github.com/user-attachments/assets/ed9ad82e-347d-4733-95cc-cef6cc2586e4" />
+
+
+<img width="1365" height="711" alt="Screenshot 2026-04-17 154044" src="https://github.com/user-attachments/assets/87ec7220-2c8c-469c-b131-927bd8b51509" />
+
+<img width="1365" height="706" alt="Screenshot 2026-04-17 154122" src="https://github.com/user-attachments/assets/1fbe6d5e-84e1-4ea7-895a-135b7ac8c796" />
 
