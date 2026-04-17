@@ -17,3 +17,16 @@ This lab focuses on verifying the operational health of **Oracle Database 21c**.
 <img width="1365" height="706" alt="Screenshot 2026-04-17 125649" src="https://github.com/user-attachments/assets/1fbbd7b9-9610-4133-ab7c-1534db703661" />
 <img width="1365" height="716" alt="Screenshot 2026-04-17 125708" src="https://github.com/user-attachments/assets/cfc4e9c7-8187-42b9-a10b-d19416c908b5" />
 <img width="1364" height="710" alt="Screenshot 2026-04-17 125812" src="https://github.com/user-attachments/assets/02283a7a-7d61-4c33-8a47-fa475103c63e" />
+
+### Lab 02: Oracle 21c User & Storage Management
+
+### Overview
+
+This lab demonstrates administrative operations in Oracle 21c, focusing on dedicated storage creation (Tablespaces) and secure User Account Management. 
+It covers the end-to-end process of assigning quotas, granting privileges, and verifying data persistence.
+
+<img width="1365" height="710" alt="Screenshot 2026-04-17 141232" src="https://github.com/user-attachments/assets/36c4242c-fc82-4e87-b7c6-c565c2f0c8b9" />
+
+<img width="1365" height="720" alt="Screenshot 2026-04-17 141315" src="https://github.com/user-attachments/assets/ae10485c-3737-4baf-b35b-8e26739305e7" />
+
+
