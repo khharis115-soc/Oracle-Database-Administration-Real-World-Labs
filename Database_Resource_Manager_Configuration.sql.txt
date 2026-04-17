@@ -1,0 +1,78 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat Mar 28 11:02:30 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: SYSTEM
+Enter password:
+Last Successful login time: Sat Mar 28 2026 10:56:55 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+
+SQL> SHOW CON_NAME;
+
+CON_NAME
+------------------------------
+CDB$ROOT
+SQL> ALTER SESSION SET CONTAINER = XEPDB1;
+
+Session altered.
+
+
+
+
+SQL> BEGIN
+  2  DBMS_RESOURCE_MANAGER.CREATE_PENDING_AREA();
+  3  DBMS_RESOURCE_MANAGER.CREATE_CONSUMER_GROUP
+  4  (
+  5     CONSUMER_GROUP => 'REPORTING_GROUP',
+  6     COMMENT        => 'GROUP FOR LOW PRIORITY LONG RUNNING REPORTS');
+  7  DBMS_RESOURCE_MANAGER.SUBMIT_PENDING_AREA();
+  8  END;
+  9  /
+
+PL/SQL procedure successfully completed.
+
+
+SQL> ALTER SYSTEM SET resource_manager_plan = 'DEFAULT_PLAN';
+
+System altered.
+
+SQL> BEGIN
+  2  DBMS_RESOURCE_MANAGER.CREATE_PENDING_AREA();
+  3  DBMS_RESOURCE_MANAGER.CREATE_PLAN(
+  4  PLAN => 'COMPANY_MAIN_PLAN',
+  5  COMMENT => 'MAIN RESOIURCE PLAN FOR THE COMPANY'
+  6  );
+  7  DBMS_RESOURCE_MANAGER.CREATE_PLAN_DIRECTIVE(
+  8  PLAN => 'COMPANY_MAIN_PLAN',
+  9  GROUP_OR_SUBPLAN => 'SYS_GROUP',
+ 10  CPU_P1 => 100
+ 11  );
+ 12  DBMS_RESOURCE_MANAGER.CREATE_PLAN_DIRECTIVE(
+ 13  PLAN => 'COMPANY_MAIN_PLAN',
+ 14  GROUP_OR_SUBPLAN => 'REPORTING_GROUP',
+ 15  CPU_P2 => 20
+ 16  );
+ 17  DBMS_RESOURCE_MANAGER.SUBMIT_PENDING_AREA();
+ 18  END;
+ 19  /
+
+
+
+
+SQL> ALTER SYSTEM SET RESOURCE_MANAGER_PLAN = 'COMPANY_MAIN_PLAN';
+ALTER SYSTEM SET RESOURCE_MANAGER_PLAN = 'COMPANY_MAIN_PLAN'
+*
+ERROR at line 1:
+ORA-32017: failure in updating SPFILE
+ORA-07452: specified resource manager plan does not exist in the data
+dictionary
+
+
+SQL>
