@@ -1,0 +1,216 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 23 12:27:07 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Mar 10 2026 08:53:42 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> SELECT instance_name, host_name, status, startup_time FROM v$instance;
+
+INSTANCE_NAME
+----------------
+HOST_NAME                                                        STATUS
+---------------------------------------------------------------- ------------
+STARTUP_T
+---------
+xe
+DESKTOP-719BMFE                                                  OPEN
+13-MAR-26
+
+
+
+
+
+SQL> SELECT name, open_mode, log_mode FROM v$database;
+
+NAME      OPEN_MODE            LOG_MODE
+--------- -------------------- ------------
+XE        READ WRITE           NOARCHIVELOG
+
+SQL> CREATE TABLE health_check_tab ( id NUMBER, check_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP, status varchar2(20));
+
+Table created.
+
+SQL> INSERT INTO health_check_tab (id,status) values (1, 'success');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> SELECT * FROM health_check_tab;
+
+        ID
+----------
+CHECK_TIME
+---------------------------------------------------------------------------
+STATUS
+--------------------
+         1
+23-MAR-26 12.32.15.139000
+success
+
+
+
+SQL> SELECT tablespace_name, file_name, bytes/1024/1024 "size (mb)", autoextensible FROM dba_data_files;
+
+TABLESPACE_NAME
+------------------------------
+FILE_NAME
+--------------------------------------------------------------------------------
+ size (mb) AUT
+---------- ---
+USERS
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\USERS01.DBF
+         5 YES
+
+UNDOTBS1
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\UNDOTBS01.DBF
+       120 YES
+
+TABLESPACE_NAME
+------------------------------
+FILE_NAME
+--------------------------------------------------------------------------------
+ size (mb) AUT
+---------- ---
+
+SYSTEM
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\SYSTEM01.DBF
+      1350 YES
+
+SYSAUX
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\SYSAUX01.DBF
+
+TABLESPACE_NAME
+------------------------------
+FILE_NAME
+--------------------------------------------------------------------------------
+ size (mb) AUT
+---------- ---
+       720 YES
+
+
+
+
+SQL> SELECT * FROM v$diag_info;
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+         1 Diag Enabled
+TRUE
+         0
+
+         1 ADR Base
+C:\APP\SC\PRODUCT\21C
+         0
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+
+         1 ADR Home
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe
+         0
+
+         1 Diag Trace
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\trace
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+         0
+
+         1 Diag Alert
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\alert
+         0
+
+         1 Diag Incident
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\incident
+         0
+
+         1 Diag Cdump
+C:\app\sc\product\21c\diag\rdbms\xe\xe\cdump
+         0
+
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+         1 Health Monitor
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\hm
+         0
+
+         1 Default Trace File
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\trace\xe_ora_460.trc
+         0
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+
+         1 Active Problem Count
+0
+         0
+
+         1 Active Incident Count
+0
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+         0
+
+         1 ORACLE_HOME
+C:\app\sc\product\21c\dbhomeXE
+         0
+
+         1 Attention Log
+
+   INST_ID NAME
+---------- ----------------------------------------------------------------
+VALUE
+--------------------------------------------------------------------------------
+    CON_ID
+----------
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\trace\attention_xe.log
+         0
+
+
+13 rows selected.
+
+SQL>
