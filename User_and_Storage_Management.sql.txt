@@ -1,0 +1,77 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 23 15:02:20 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Mon Mar 23 2026 12:27:24 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CREATE TABLESPACE hr_app_ts DATAFILE 'hr_app01.dbf' SIZE 50M AUTOEXTEND ON NEXT 10M MAXSIZE 100M;
+
+Tablespace created.
+
+
+
+
+SQL> ALTER SESSION SET "_ORACLE_SCRIPT" = true;
+
+Session altered.
+
+
+
+
+SQL> CREATE USER hr_admin IDENTIFIED BY "secure_pass123" DEFAULT TABLESPACE hr_app_ts;
+
+User created.
+
+SQL> GRANT CREATE SESSION, CREATE TABLE TO hr_admin;
+
+Grant succeeded.
+
+SQL> ALTER USER hr_admin QUOTA 20M ON hr_app_ts;
+
+User altered.
+
+
+SQL> CONNECT hr_admin;
+Enter password:
+Connected.
+SQL> CREATE TABLE employee ( emp_id NUMBER PRIMARY KEY, emp_name VARCHAR2(50), salary NUMBER);
+
+Table created.
+
+
+
+
+
+SQL> INSERT INTO employee VALUES (101,'ali', 75000);
+
+1 row created.
+
+SQL> SELECT * FROM employee;
+
+    EMP_ID EMP_NAME                                               SALARY
+---------- -------------------------------------------------- ----------
+       101 ali                                                     75000
+
+
+
+
+
+SQL> CONNECT SYSTEM/"khharis"
+Connected.
+SQL> SHOW USER
+USER is "SYSTEM"
+SQL>
