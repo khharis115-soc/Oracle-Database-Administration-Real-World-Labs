@@ -71,3 +71,11 @@ This lab focuses on Security Administration in Oracle 21c. It demonstrates how t
 
 <img width="1365" height="706" alt="Screenshot 2026-04-17 154122" src="https://github.com/user-attachments/assets/1fbe6d5e-84e1-4ea7-895a-135b7ac8c796" />
 
+## lab 06: Database Maintenance & Object Validation
+## Overview
+This lab covers essential Database Maintenance tasks in Oracle 21c. It focuses on verifying the database version, checking the health of database objects, and performing storage optimization through tablespace coalescing.
+
+<img width="1365" height="710" alt="Screenshot 2026-04-17 154803" src="https://github.com/user-attachments/assets/bc8fc759-bb37-484a-a8ee-b06ed6cb66d1" />
+
+
+<img width="1365" height="705" alt="Screenshot 2026-04-17 154829" src="https://github.com/user-attachments/assets/13eba1be-b3f9-44ad-941c-31092742fbe0" />
