@@ -109,3 +109,7 @@ This lab demonstrates the implementation of Row-Level Security (RLS) using Oracl
 
 <img width="1364" height="684" alt="Screenshot 2026-04-17 174451" src="https://github.com/user-attachments/assets/593d2ae9-1634-4968-806b-4cec41084a9f" />
 
+## Lab 10: Data Redaction & Sensitive Data Masking
+## Overview
+This lab demonstrates the implementation of Oracle Data Redaction, a powerful security feature that enables the on-the-fly masking of sensitive data. It focuses on protecting column-level information (such as salary) by redacting values for non-privileged users while maintaining data integrity for administrative roles.
+
