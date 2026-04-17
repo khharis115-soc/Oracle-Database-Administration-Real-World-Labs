@@ -1,0 +1,41 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Thu Mar 26 11:19:51 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Mar 24 2026 15:54:08 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> SELECT banner FROM v$version;
+
+BANNER
+--------------------------------------------------------------------------------
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+
+SQL> opatch lsinventory
+SP2-0734: unknown command beginning "opatch lsi..." - rest of line ignored.
+SQL> opatch lsinventory
+SP2-0734: unknown command beginning "opatch lsi..." - rest of line ignored.
+SQL> SELECT owner, object_name, object_type FROM dba_objects WHERE status = 'INVALID';
+
+no rows selected
+
+SQL> ALTER TABLESPACE hr_app_ts COALESCE;
+
+Tablespace altered.
+
+SQL> SELECT value FROM v$diag_info WHERE name = 'Diag Trace';
+
+VALUE
+--------------------------------------------------------------------------------
+C:\APP\SC\PRODUCT\21C\diag\rdbms\xe\xe\trace
+
+SQL>
