@@ -1,0 +1,178 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Tue Mar 24 15:44:48 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Mar 24 2026 15:20:11 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> AUDIT SELECT, INSERT, UPDATE, DELETE ON hr_admin.employee BY ACCESS;
+
+Audit succeeded.
+
+SQL> SELECT username, obj_name, action_name, timestamp FROM dba_audit_object;
+
+no rows selected
+
+SQL> connect hr_admin;
+Enter password:
+Connected.
+SQL> SELECT * FROM employee;
+
+    EMP_ID EMP_NAME                                               SALARY
+---------- -------------------------------------------------- ----------
+       101 ali                                                     75000
+
+
+
+SQL> connect system;
+Enter password:
+Connected.
+SQL> SELECT username, obj_name, action_name, timestamp FROM dba_audit_object WHERE obj_name = 'employee';
+
+no rows selected
+
+SQL> SELECT username, obj_name, action_name, timestamp FROM dba_audit_object WHERE obj_name = 'EMPLOYEE';
+
+USERNAME
+--------------------------------------------------------------------------------
+OBJ_NAME
+--------------------------------------------------------------------------------
+ACTION_NAME                  TIMESTAMP
+---------------------------- ---------
+HR_ADMIN
+EMPLOYEE
+SELECT                       24-MAR-26
+
+
+SQL> SELECT username, obj_name, action_name, timestamp FROM dba_audit_object ;
+
+USERNAME
+--------------------------------------------------------------------------------
+OBJ_NAME
+--------------------------------------------------------------------------------
+ACTION_NAME                  TIMESTAMP
+---------------------------- ---------
+HR_ADMIN
+EMPLOYEE
+SELECT                       24-MAR-26
+
+
+SQL> SELECT resource_name, limit FROM dba_profiles WHERE profile = 'DEFAULT';
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+FAILED_LOGIN_ATTEMPTS
+10
+
+COMPOSITE_LIMIT
+UNLIMITED
+
+SESSIONS_PER_USER
+UNLIMITED
+
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+CPU_PER_SESSION
+UNLIMITED
+
+CPU_PER_CALL
+UNLIMITED
+
+LOGICAL_READS_PER_SESSION
+UNLIMITED
+
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+LOGICAL_READS_PER_CALL
+UNLIMITED
+
+IDLE_TIME
+UNLIMITED
+
+CONNECT_TIME
+UNLIMITED
+
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+PRIVATE_SGA
+UNLIMITED
+
+PASSWORD_LIFE_TIME
+180
+
+PASSWORD_REUSE_TIME
+UNLIMITED
+
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+PASSWORD_REUSE_MAX
+UNLIMITED
+
+PASSWORD_VERIFY_FUNCTION
+NULL
+
+PASSWORD_LOCK_TIME
+1
+
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+PASSWORD_GRACE_TIME
+7
+
+INACTIVE_ACCOUNT_TIME
+365
+
+PASSWORD_ROLLOVER_TIME
+0
+
+
+18 rows selected.
+
+
+
+
+SQL> SELECT grantee, privilege FROM dba_sys_privs WHERE privilege = 'DBA';
+
+no rows selected
+
+SQL> SELECT grantee, privilege FROM dba_sys_privs WHERE privilege = 'DBA';
+
+no rows selected
+
+SQL> SELECT grantee, privilege FROM dba_sys_privs WHERE privilege = 'DBA';
+
+no rows selected
+
+
+
+
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
