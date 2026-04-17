@@ -79,3 +79,12 @@ This lab covers essential Database Maintenance tasks in Oracle 21c. It focuses o
 
 
 <img width="1365" height="705" alt="Screenshot 2026-04-17 154829" src="https://github.com/user-attachments/assets/13eba1be-b3f9-44ad-941c-31092742fbe0" />
+
+### Lab 07: Data Pump Export and Import Operations
+### Overview
+This lab focuses on Backup and Recovery strategies using Oracle's Data Pump utility. It demonstrates how to create logical backups of a specific schema and restore data using the expdp and impdp command-line tools
+
+<img width="1365" height="457" alt="Screenshot 2026-04-17 155658" src="https://github.com/user-attachments/assets/f7686ad0-7070-4bab-96ca-500ba984e813" />
+
+
+<img width="1365" height="572" alt="Screenshot 2026-04-17 160910" src="https://github.com/user-attachments/assets/d6f9c1ae-8833-4af7-83f2-acf843305819" />
