@@ -1,0 +1,314 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Tue Mar 24 10:39:26 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Mar 24 2026 10:33:35 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> CONNECT hr_admin;
+Enter password:
+ERROR:
+ORA-28000: The account is locked.
+
+
+SQL> SHOW USER;
+USER is ""
+SQL> CONNECT SYSTEM;
+Enter password:
+Connected.
+SQL> SHOW USER;
+USER is "SYSTEM"
+
+
+
+
+
+
+SQL> SELECT username, account_status, lock_date FROM dba_users WHERE account_status LIKE '%LOCKED%';
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+SYS
+LOCKED                           24-MAR-26
+
+XS$NULL
+LOCKED                           28-SEP-21
+
+OJVMSYS
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+LBACSYS
+LOCKED                           08-FEB-26
+
+OUTLN
+LOCKED                           08-FEB-26
+
+DBSNMP
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+APPQOSSYS
+LOCKED                           08-FEB-26
+
+DBSFWUSER
+LOCKED                           08-FEB-26
+
+GGSYS
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+ANONYMOUS
+LOCKED                           08-FEB-26
+
+CTXSYS
+LOCKED                           08-FEB-26
+
+DVSYS
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+DVF
+LOCKED                           08-FEB-26
+
+AUDSYS
+LOCKED                           08-FEB-26
+
+GSMADMIN_INTERNAL
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+OLAPSYS
+LOCKED                           08-FEB-26
+
+MDSYS
+LOCKED                           08-FEB-26
+
+XDB
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+WMSYS
+LOCKED                           08-FEB-26
+
+GSMCATUSER
+LOCKED                           08-FEB-26
+
+MDDATA
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+SYSBACKUP
+LOCKED                           08-FEB-26
+
+REMOTE_SCHEDULER_AGENT
+LOCKED                           08-FEB-26
+
+GSMUSER
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+GSMROOTUSER
+LOCKED                           08-FEB-26
+
+SI_INFORMTN_SCHEMA
+LOCKED                           08-FEB-26
+
+DIP
+LOCKED                           28-SEP-21
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+ORDPLUGINS
+LOCKED                           08-FEB-26
+
+SYSKM
+LOCKED                           08-FEB-26
+
+DGPDB_INT
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+ORDDATA
+LOCKED                           08-FEB-26
+
+ORACLE_OCM
+LOCKED                           08-FEB-26
+
+SYS$UMF
+LOCKED                           08-FEB-26
+
+
+USERNAME
+--------------------------------------------------------------------------------
+ACCOUNT_STATUS                   LOCK_DATE
+-------------------------------- ---------
+SYSDG
+LOCKED                           08-FEB-26
+
+ORDSYS
+LOCKED                           08-FEB-26
+
+HR_ADMIN
+LOCKED(TIMED)                    24-MAR-26
+
+
+36 rows selected.
+
+
+
+
+
+
+SQL> SELECT username, timestamp, action_name, returncode FROM dba_audit_session WHERE returncode != 0 ORDER BY timestamp DESC;
+
+USERNAME
+--------------------------------------------------------------------------------
+TIMESTAMP ACTION_NAME                  RETURNCODE
+--------- ---------------------------- ----------
+HR_ADMIN
+24-MAR-26 LOGON                             28000
+
+HR_ADMIN
+24-MAR-26 LOGON                              1017
+
+HR_ADMIN
+24-MAR-26 LOGON                              1017
+
+
+USERNAME
+--------------------------------------------------------------------------------
+TIMESTAMP ACTION_NAME                  RETURNCODE
+--------- ---------------------------- ----------
+HR_ADMIN
+24-MAR-26 LOGON                              1017
+
+HR_ADMIN
+24-MAR-26 LOGON                              1017
+
+HR_ADMIN
+24-MAR-26 LOGON                              1017
+
+
+USERNAME
+--------------------------------------------------------------------------------
+TIMESTAMP ACTION_NAME                  RETURNCODE
+--------- ---------------------------- ----------
+HR_ADMIN;
+24-MAR-26 LOGON                              1017
+
+
+7 rows selected.
+
+
+
+
+SQL> ALTER USER hr_admin ACCOUNT UNLOCK;
+
+User altered.
+
+SQL> SELECT resource_name, limit FROM dba_profiles WHERE resource_name = 'FAILED_LOGIN_ATTEMPTS';
+
+RESOURCE_NAME
+--------------------------------
+LIMIT
+--------------------------------------------------------------------------------
+FAILED_LOGIN_ATTEMPTS
+10
+
+FAILED_LOGIN_ATTEMPTS
+5
+
+FAILED_LOGIN_ATTEMPTS
+3
+
+
+SQL> AUDIT SESSION;
+
+Audit succeeded.
+
+SQL> AUDIT SESSION WHENEVER NOT SUCCESSFUL;
+
+Audit succeeded.
+
+SQL>
