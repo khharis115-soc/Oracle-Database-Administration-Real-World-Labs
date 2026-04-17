@@ -97,3 +97,15 @@ This lab explores the Oracle Database Resource Manager (DBRM), a tool used to ma
 
 <img width="1363" height="448" alt="Screenshot 2026-04-17 162340" src="https://github.com/user-attachments/assets/ad7491a1-fae5-4e60-b1ad-08b22278ef15" />
 
+
+## Lab 9: Virtual Private Database (VPD) & Row-Level Security
+## Overview
+This lab demonstrates the implementation of Row-Level Security (RLS) using Oracle's Virtual Private Database (VPD) feature. It focuses on creating security policies that dynamically restrict data access based on user attributes, ensuring that users can only see records relevant to their department.
+
+<img width="1365" height="702" alt="Screenshot 2026-04-17 174259" src="https://github.com/user-attachments/assets/33fbc19d-65d5-4b96-8e3d-b54f1fc877be" />
+
+<img width="1365" height="701" alt="Screenshot 2026-04-17 174404" src="https://github.com/user-attachments/assets/44b31e51-cb35-4345-bb0d-2cd16817beb5" />
+
+
+<img width="1364" height="684" alt="Screenshot 2026-04-17 174451" src="https://github.com/user-attachments/assets/593d2ae9-1634-4968-806b-4cec41084a9f" />
+
