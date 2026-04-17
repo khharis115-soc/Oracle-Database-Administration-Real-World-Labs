@@ -30,3 +30,20 @@ It covers the end-to-end process of assigning quotas, granting privileges, and v
 <img width="1365" height="720" alt="Screenshot 2026-04-17 141315" src="https://github.com/user-attachments/assets/ae10485c-3737-4baf-b35b-8e26739305e7" />
 
 
+### Lab 03: Database Security, Account Management, and Auditing
+###Overview
+This lab focuses on Database Security within Oracle 21c, specifically handling account lockouts caused by failed login attempts. It demonstrates how to monitor security logs, unlock users, and configure auditing for failed access attempts.
+
+<img width="1365" height="712" alt="Screenshot 2026-04-17 142400" src="https://github.com/user-attachments/assets/eac1e2b8-30ea-4e61-b98e-399c7c973328" />
+
+<img width="1365" height="722" alt="Screenshot 2026-04-17 142436" src="https://github.com/user-attachments/assets/c6ddc0f9-db18-4279-9944-ddcc8afa2853" />
+
+
+<img width="1365" height="715" alt="Screenshot 2026-04-17 142521" src="https://github.com/user-attachments/assets/7f4cfeec-64ab-4827-82d1-633eff7a8352" />
+
+<img width="1365" height="713" alt="Screenshot 2026-04-17 142551" src="https://github.com/user-attachments/assets/4b37b474-7baf-4ab7-98d4-f961dfcfa555" />
+
+<img width="1365" height="713" alt="Screenshot 2026-04-17 142611" src="https://github.com/user-attachments/assets/45e6f4bc-97fa-48f0-b5d6-0b9171e541c5" />
+
+<img width="1365" height="704" alt="Screenshot 2026-04-17 142656" src="https://github.com/user-attachments/assets/eff781ac-e001-48c7-a16c-ac901e14c419" />
+
