@@ -1,0 +1,66 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Tue Mar 24 10:55:00 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Mar 24 2026 10:41:39 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+
+SQL> SELECT file_name, bytes/1024/1024 "Size (MB)" FROM dba_data_files;
+
+FILE_NAME
+--------------------------------------------------------------------------------
+ Size (MB)
+----------
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\SYSTEM01.DBF
+      1350
+
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\SYSAUX01.DBF
+       720
+
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\UNDOTBS01.DBF
+       120
+
+
+FILE_NAME
+--------------------------------------------------------------------------------
+ Size (MB)
+----------
+C:\APP\SC\PRODUCT\21C\ORADATA\XE\USERS01.DBF
+         5
+
+C:\APP\SC\PRODUCT\21C\DBHOMEXE\DATABASE\HR_APP01.DBF
+        50
+
+
+SQL> ALTER DATABASE DATAFILE 'hr_app01.dbf' RESIZE 100M;
+
+Database altered.
+
+SQL> ALTER TABLESPACE hr_app_ts ADD DATAFILE 'hr_app02.dbf' SIZE 50M;
+
+Tablespace altered.
+
+
+
+SQL> SELECT tablespace_name, used_space, tablespace_size, used_percent FROM dba_tablespace_usage_metrics;
+
+TABLESPACE_NAME                USED_SPACE TABLESPACE_SIZE USED_PERCENT
+------------------------------ ---------- --------------- ------------
+SYSTEM                             171984         1838595   9.35409919
+SYSAUX                              84712         1838595   4.60743122
+USERS                                 344         1838595   .018709939
+HR_APP_TS                             272           19200   1.41666667
+TEMP                                    0         1838604            0
+UNDOTBS1                             1720         4194302   .041008015
+
+6 rows selected.
+
+SQL>
