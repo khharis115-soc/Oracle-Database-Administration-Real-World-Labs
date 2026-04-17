@@ -1,0 +1,29 @@
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Thu Mar 26 11:29:28 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Thu Mar 26 2026 11:20:13 +05:00
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> CREATE OR REPLACE DIRECTORY my_backup_dir AS 'C:/backups';
+
+Directory created.
+
+
+
+SQL> GRANT READ, WRITE ON DIRECTORY my_backup_dir TO hr_admin;
+
+Grant succeeded.
+
+SQL> CREATE OR REPLACE DIRECTORY my_backup_dir AS 'C:/backups';
+
+Directory created.
+
+SQL>

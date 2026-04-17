@@ -1,0 +1,31 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+
+
+C:\Users\sc>impdp hr_admin/secure_pass123@xe DIRECTORY=my_backup_dir DUMPFILE=hr_data.dmp TABLE_EXISTS_ACTION=REPLACE
+
+Import: Release 21.0.0.0.0 - Production on Thu Mar 26 12:01:30 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+Connected to: Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+
+Warning: Oracle Data Pump operations are not typically needed when connected to the root or seed of a container database.
+
+Master table "HR_ADMIN"."SYS_IMPORT_FULL_01" successfully loaded/unloaded
+Starting "HR_ADMIN"."SYS_IMPORT_FULL_01":  hr_admin/********@xe DIRECTORY=my_backup_dir DUMPFILE=hr_data.dmp TABLE_EXISTS_ACTION=REPLACE
+Processing object type SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA
+Processing object type SCHEMA_EXPORT/TABLE/TABLE
+Processing object type SCHEMA_EXPORT/TABLE/TABLE_DATA
+. . imported "HR_ADMIN"."EMPLOYEE"                       5.914 KB       1 rows
+Processing object type SCHEMA_EXPORT/TABLE/AUDIT_OBJ
+Processing object type SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT
+Processing object type SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS
+Processing object type SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS
+Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
+Job "HR_ADMIN"."SYS_IMPORT_FULL_01" successfully completed at Thu Mar 26 12:02:02 2026 elapsed 0 00:00:30
+
+
+C:\Users\sc>
