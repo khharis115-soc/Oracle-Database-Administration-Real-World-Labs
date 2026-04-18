@@ -32,25 +32,7 @@ SQL>  INSERT INTO scott.emp1 values (3, 'admin', 'HR');
 
 1 row created.
 
-SQL> CREATE OR REPLACE FUNCTION
-  2  scott.get_dept_privacy (
-  3  schema-p IN VARCHAR2,
-  4
-  5  /
 
-Warning: Function created with compilation errors.
-
-SQL> CREATE OR REPLACE FUNCTION
-  2  scott.get_dept_privacy (
-  3  schema-p IN VARCHAR2,
-  4  table_p IN VARCHAR2
-  5  ) RETURN VARCHAR2 AS
-  6  BEGIN
-  7  RETURN 'department = ''IT''';
-  8  END;
-  9  /
-
-Warning: Function created with compilation errors.
 
 SQL> CREATE OR REPLACE FUNCTION
   2  scott.get_dept_privacy (
@@ -64,22 +46,6 @@ SQL> CREATE OR REPLACE FUNCTION
 
 Function created.
 
-SQL> BEGIN
-  2  DBMS_RLS.ADD_POLICY (
-  3  object_schema => 'SCOTT',
-  4  object
-  5  /
-object
-     *
-ERROR at line 4:
-ORA-06550: line 4, column 6:
-PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
-following:
-. ( ) , * @ % & | = - + < / > at in is mod remainder not null
-rem returning with => .. <an exponent (**)> <> or != or ~= >=
-<= <> and or default like like2 like4 likec between error ||
-multiset member empty submultiset lax strict without pretty
-ascii true false absent format allow truncate
 
 
 SQL> BEGIN
@@ -135,11 +101,6 @@ IT
 SQL> conn system
 Enter password:
 Connected.
-SQL> GRANT CREATE SESSION TO scott;
-GRANT CREATE SESSION TO scott
-                        *
-ERROR at line 1:
-ORA-01917: user or role 'SCOTT' does not exist
 
 
 SQL>  ALTER SESSION SET CONTAINER = XEPDB1;
